@@ -1,69 +1,81 @@
-<div id="bmi-calculator">
-      <form id="calculator-form" method="get" action="/bmi-information/bmi-result/index.html" onsubmit="return calculateBMI();">
-        <div class="row">
-          
-            <!--<h3>Enter your <span>Weight</span></h3>-->
-             <h1>Enter your Weight</h1>
-          
-        </div>
-        <div class="row">
-          <div class="col-xs-4 col-md-4 text-center">
-            <div class="form-group">
-              <label class="form-question" for="stones" style="opacity: 0.3;">Stones</label>
-              <input class="numeric number form-control" id="ctl00_Content_stones" name="stones" onchange="convertPounds()">
-            </div>
-          </div>
-          <div class="col-xs-4 col-md-4 text-center">
-            <div class="form-group">
-              <label class="form-question" for="pounds" style="opacity: 0.3;">Pounds</label>
-              <input class="numeric number form-control" id="ctl00_Content_pounds" name="pounds" onchange="convertPounds()">
-            </div>
-          </div>
-          <div class="col-xs-4 col-md-4 text-center">
-            <div class="form-group">
-              <label class="form-question" for="kgs" style="opacity: 0.3;">or KGs</label>
-              <input type="text" class="numeric number form-control" id="ctl00_Content_kgs" name="kgs" onchange="convertKilos()">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 text-center padding-top-default">
-            <h3>And Your <span>Height</span></h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-4 col-md-4 text-center">
-            <div class="form-group">
-              <label class="form-question" for="feet" style="opacity: 0.3;">Feet</label>
-              <input class="numeric number form-control" id="ctl00_Content_feet" name="feet" onchange="convertInches()">
-            </div>
-          </div>
-          <div class="col-xs-4 col-md-4 text-center">
-            <div class="form-group">
-              <label class="form-question" for="inches" style="opacity: 0.3;">Inches</label>
-              <input class="numeric number form-control" id="ctl00_Content_inches" name="inches" onchange="convertInches()">
-            </div>
-          </div>
-          <div class="col-xs-4 col-md-4 text-center">
-            <div class="form-group">
-              <label class="form-question" for="metres" style="opacity: 0.3;">or Metres</label>
-              <input class="numeric number form-control" id="ctl00_Content_metres" name="metres" onchange="convertMetres()">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <input id="btn-calculate" type="submit" class="btn btn-qubico" value="Calculate Your BMI Now">
-          </div>                
-        </div>
-        <div class="row">
-          
-          <div class="col-md-12 text-center padding-top-default">
-            <small style="font-weight:normal; font-size:11px">Type in your weight either in stones, pounds or kilograms and your height either in feet, inches or meters.<!--<strong>There should be no decimals or commas</strong>--></small>
-          </div>
-        </div>
-      </form>  
+<div class="bmiCalculator">
+ <div class="bmi">
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2>BMI Calculator</h2>         
+      </div>
+    </div> 
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h3>Enter Your Weight</h3>   
+      </div>
+    </div> 
+
+    <div class="row">
+      <div class="col-sm-4 text-center">
+          <label for="stone">Stone</label>
+          <input class="form-control" [(ngModel)]="stone" id="stone" (keyup)="convertWeight('stone')" placeholder="Enter stone">
+      </div>
+      <div class="col-sm-4 text-center">
+          <label for="pounds">Pounds</label>
+          <input class="form-control" [(ngModel)]="pounds" id="pounds" (keyup)="convertWeight('pounds')" placeholder="Enter pounds">
+      </div>
+      <div class="col-sm-4 text-center">
+          <label for="kgs">or Kgs</label>
+          <input class="form-control" [(ngModel)]="kgs" id="kgs" (keyup)="convertWeight('kgs')" placeholder="Enter kgs">
+      </div>
+    </div> 
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+         <h3>Add Your Height</h3>  
+      </div>
+    </div> 
+
+     <div class="row">
+      <div class="col-sm-4 text-center">
+          <label for="feet">Feet</label>
+          <input class="form-control" [(ngModel)]="feet" id="feet" (keyup)="convertHeight('feet')" placeholder="Enter feet">
+      </div>
+      <div class="col-sm-4 text-center">
+          <label for="inches">Inches</label>
+          <input class="form-control" [(ngModel)]="inches" id="inches" (keyup)="convertHeight('inches')" placeholder="Enter inches">
+      </div>
+      <div class="col-sm-4 text-center">
+          <label for="metres">or Metres</label>
+          <input class="form-control" [(ngModel)]="metres" id="metres" (keyup)="convertHeight('metres')" placeholder="Enter metres">
+      </div>
+    </div>  
+
+     <div class="row">
+      <div class="col-sm-12 text-center button">
+        <button type="submit" class="btn btn-primary" (click)="calcBMI()">Calculate BMI</button>
+      </div>
     </div>
-	
-	
-	
+
+    <div class="row">
+      <div class="col-sm-12 text-center">
+    	  <p>Enter your height either in stones/pounds or kilograms and your height either in feet/inches or metres.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12 small-text">
+        <p>Result:</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 text-center message">
+        <h3>
+          {{message}} {{range}}
+        </h3>
+      </div>
+    </div>
+
+
+
+ </div>
+</div>
