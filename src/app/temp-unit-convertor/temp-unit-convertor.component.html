@@ -1,18 +1,27 @@
-<div class="form-group">
-  <h1>Temperature Unit Convertor</h1>
-  <p><label for="celsius">Celsius </label><br/>
-  <input class ="form-control" id="c" onkeyup= "checkId(id)" placeholder="Enter a number">
-  </p>  
+<div class="container">
+  <div class="jumbotron">
+    <h2>Temperature Unit Convertor</h2>
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="celcius">Celcius</label>
+        <input [(ngModel)]="celcius" (click)="checkId('c')" class="form-control" id="celcius" placeholder="Enter a number">
+      </div>
+    </div>
 
-  <p><label for="Fahrenheit">Fahrenheit </label><br />
-  <input class ="form-control" id="f" onkeyup= "checkId(id)" placeholder="Enter a number">
-  </p> 
- <!-- <button type="submit" class="btn btn-primary" onclick="converts()">convert</button>-->
-  
-  <button type="button" onclick="converts()">convert</button>
-  <h4>Total conversion: </h4>
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="fahrenheit">Fahrenheit:</label>
+        <input [(ngModel)]="fahrenheit" (click)="checkId('f')" class="form-control" id="fahrenheit" placeholder="Enter a number">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 button">
+          <button type="submit" class="btn btn-primary" (click)="converts()">convert</button>
+      </div>
+    </div>
+    <h3>Total conversion: {{count}}</h3>
+  </div>
 </div>
-
-
 
  

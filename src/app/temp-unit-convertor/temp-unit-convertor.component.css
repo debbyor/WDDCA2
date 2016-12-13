@@ -1,13 +1,22 @@
 .form-group{
-    width: 40em;
+    width: 35em;
     margin-left: 2em;
 }
 .form-group h4{
     padding-left: 0em;
 }
 .form-group button{
+    background-color:#4370ba;
     color: antiquewhite;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 1em;  
+    
 }
-.form-control{
-    color: blue;
+button{
+    margin-top: 2em;
+}
+.row{
+    padding:1em;
 }
