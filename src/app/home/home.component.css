@@ -1,0 +1,12 @@
+.container h3, p{
+    text-align: center; 
+    color: black; 
+}
+
+.container {
+    margin: auto;
+    width: 600px;
+  
+    background-color:#adbedb;
+
+}
