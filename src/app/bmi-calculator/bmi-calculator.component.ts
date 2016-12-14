@@ -39,17 +39,22 @@ export class BmiCalculatorComponent implements OnInit {
     this.weightChoice = id;
 
     if (this.weightChoice === "stone") {
-      this.kgs = this.stone * 6.3503;   
+      this.kgs = this.stone * 6.3503; 
+      this.pounds = this.stone * 14;
       this.kgs = Math.round(this.kgs * 100) / 100; 
+      this.pounds = Math.round(this.pounds * 100) / 100;
+
     }
     else if (this.weightChoice === "pounds") {
-      this.kgs = this.kgs + this.pounds * 0.4536;
+      this.kgs = this.pounds * 0.4536;
+      this.stone = this.pounds*0.071429;
       this.kgs = Math.round(this.kgs * 100) / 100;
+      this.stone = Math.round(this.stone * 100) / 100;
     }
+    
     else {
-      this.stone = this.kgs / 6.3503;
-      this.pounds = this.stone * 14;
-      this.pounds = this.pounds % 14;
+      this.stone = this.kgs / 6.3503; 
+      this.pounds = this.kgs / 0.4536;       
       this.stone = Math.round(this.stone * 100) / 100;
       this.pounds = Math.round(this.pounds * 100) / 100;
     }
@@ -60,18 +65,20 @@ export class BmiCalculatorComponent implements OnInit {
 
     if (this.heightChoice === "feet") {
       this.metres = this.feet * 0.3048;
-      this.metres = Math.round(this.metres * 100) / 100;
+      this.inches = this.feet * 12;     
     }
     else if (this.heightChoice === "inches") {
-      this.metres += this.inches * 0.0254;
-      this.metres = Math.round(this.metres * 100) / 100;
+      this.metres = this.inches * 0.0254;
+      this.feet = this.inches/12;
+      this.metres = Math.round(this.metres * 10000) / 10000;
+      this.feet = Math.round(this.feet * 10000) / 10000;
+
     }
     else {
       this.feet = this.metres * 3.28084;
       this.inches = this.feet * 12.000;
-      this.inches = this.inches % 12;
-      this.inches = Math.round(this.inches * 100) / 100.0;
-      this.feet = Math.round(this.feet * 100) / 100;
+      this.inches = Math.round(this.inches * 10000) / 10000;
+      this.feet = Math.round(this.feet * 10000) / 10000;
     }
   }
 
@@ -82,6 +89,11 @@ export class BmiCalculatorComponent implements OnInit {
     if (this.bmi >= 0 && this.bmi < 18) {
     this.message = "Your estimated BMI is " + this.bmi + ", this is in the ";
     this.range = "Underweight Range";
+    
+    //<p>this.message = "Your estimated BMI is " + this.bmi + ", this is in the ";
+    //this.range = <span style="color:green">Underweight Range</span></p>;
+    //<p>My mother has <span style="color:blue">blue</span> eyes.</p>
+
     }
     else if (this.bmi >= 18 && this.bmi < 25) { 
       this.message = "Your estimated BMI is " + this.bmi + ", this is in the ";
