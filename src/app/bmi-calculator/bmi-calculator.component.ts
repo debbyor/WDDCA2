@@ -106,6 +106,9 @@ colorcode(){
   if(this.range == "Overweight Range"){
     return "red";
   }
+  if(this.range == "Underweight Range"){
+    return "red";
+  }
 }
 
 }
