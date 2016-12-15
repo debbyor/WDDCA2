@@ -49,8 +49,8 @@ export class BmiCalculatorComponent implements OnInit {
       this.stone = this.kgs / 6.3503;
       this.pounds = this.stone * 14;
       this.pounds = this.pounds % 14;
-      this.stone = Math.round(this.stone * 100) / 100;
-      this.pounds = Math.round(this.pounds * 100) / 100;
+      this.stone = Math.floor(this.stone);
+      this.pounds = Math.round(this.pounds);
     }
   }
 
@@ -69,8 +69,8 @@ export class BmiCalculatorComponent implements OnInit {
       this.feet = this.metres * 3.28084;
       this.inches = this.feet * 12.000;
       this.inches = this.inches % 12;
-      this.inches = Math.round(this.inches * 100) / 100.0;
-      this.feet = Math.round(this.feet * 100) / 100;
+      this.inches = Math.round(this.inches);
+      this.feet = Math.floor(this.feet);
     }
   }
 
